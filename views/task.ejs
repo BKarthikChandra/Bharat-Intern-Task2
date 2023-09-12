@@ -1,0 +1,71 @@
+<%- include('template1.ejs') %>
+<%- include('page2.ejs') %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Messages</title>
+  <style>
+    /* Scope the CSS to elements within this template */
+    body 
+    {
+        background-color: #202528;
+    }
+    .message-container {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Center vertically */
+    }
+
+    .container {
+      width: 80%;
+      max-width: 800px; /* Limit maximum width */
+      margin: auto;
+      padding: 20px;
+      background-color: dark;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+
+    .username {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="message-container">
+    <h2>Assigned Work</h2>
+    <div class="container">
+      
+     
+      <% results.forEach((row) => { %>
+        <div class="message">
+          <div class="username">From: <%= row.fromusername %></div>
+          <div class="content"><%= row.task %></div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</body>
+</html>
